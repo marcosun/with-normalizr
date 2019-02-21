@@ -59,6 +59,3 @@ typings/
 
 # Release path
 build
-
-# jsdoc output
-out

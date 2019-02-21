@@ -1,16 +1,10 @@
 {
-  "name": "js-component-seed",
-  "version": "1.0.2",
-  "description": "Start point for a javascript package",
+  "name": "redux-normalizr",
+  "version": "1.0.0",
+  "description": "A factory function to simplify flattening data structure with normalizr.",
   "main": "src/index.js",
   "scripts": {
-    "prebuild": "rimraf build demo/node_modules/js-component-seed",
-    "dev:copy-files": "cross-env NODE_ENV=development babel-node ./script/copy-files.js",
-    "dev:es2015": "cross-env NODE_ENV=development babel ./src/ -d ./demo/node_modules/js-component-seed/ --ignore *.test.js",
-    "dev:es2015modules": "cross-env NODE_ENV=development BABEL_ENV=modules babel ./src/index.js -o ./demo/node_modules/js-component-seed/index.es.js",
-    "dev:es": "cross-env NODE_ENV=development BABEL_ENV=es babel ./src/ -d ./demo/node_modules/js-component-seed/es/ --ignore *.test.js",
-    "dev": "yarn dev:es2015 && yarn dev:es2015modules && yarn dev:es",
-    "start": "yarn prebuild && yarn dev:copy-files && nodemon --exec yarn dev",
+    "prebuild": "rimraf build",
     "build:copy-files": "cross-env NODE_ENV=production babel-node ./script/copy-files.js",
     "build:es2015": "cross-env NODE_ENV=production babel ./src/ -d ./build/ --ignore *.test.js",
     "build:es2015modules": "cross-env NODE_ENV=production BABEL_ENV=modules babel ./src/index.js -o ./build/index.es.js",
@@ -21,7 +15,7 @@
     "preversion": "yarn test",
     "version": "yarn build && npm publish build"
   },
-  "repository": "git@github.com:marcosun/js-component-seed.git",
+  "repository": "git@github.com:marcosun/redux-normalizr.git",
   "author": "marcosun <marcoinbristol@gmail.com>",
   "license": "MIT",
   "devDependencies": {
