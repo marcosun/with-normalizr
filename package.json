@@ -40,5 +40,8 @@
     "roots": [
       "<rootDir>/src/"
     ]
+  },
+  "peerDependencies": {
+    "normalizr": "^3.3.0"
   }
 }
