@@ -1,44 +1,30 @@
 import { denormalize, normalize } from 'normalizr';
 
-/**
- * By exposing normalise and denormalise methods to a schema,
- * you no longer need to import normalizr anywhere except where you define your schema.
- * How to use:
- * // In schema.js
- * const customerSchema = withRedux(new schema.Entity('customer'));
- *
- * Before:
- * // In some other files
- * import { normalize } from 'normalizr';
- * import { customerSchema } from './schema.js';
- * normalize({ id: 1, name: 'marco' }, customerSchema);
- * Now:
- * import { customerSchema } from './schema.js';
- * customerSchema.reduxNormalize({ id: 1, name: 'marco' })
- *
- * Before:
- * // In some other files
- * import { denormalize } from 'normalizr';
- * import { customerSchema } from './schema.js';
- * // state = customerSchema.reduxNormalize({ id: 1, name: 'marco' });
- * denormalize(state.result, customerSchema, state.entities);
- * Now:
- * import { customerSchema } from './schema.js';
- * customerSchema.reduxDenormalize(state);
- */
 export default function withRedux(schema) {
   /* A wrapper function of denormalize. */
-  schema.reduxDenormalize = (state, input = state.result) => {
-    return denormalize(
+  schema.reduxDenormalize = (input, entities) => {
+    let inputProp;
+    let entitiesProp;
+
+    if (entities === void 0) {
       /**
-       * Read input from state by default.
-       * However, user may override this by providing input as the second parameter.
+       * If only one argument is received, the received argument must be an object returned by
+       * normalize function.
        */
-      input,
-      /* Schema has been defined already. */
+      inputProp = input.result;
+      entitiesProp = input.entities;
+    } else {
+      /**
+       * If two arguments are received, they are input and entities defined by denormalize function.
+       */
+      inputProp = input;
+      entitiesProp = entities;
+    }
+
+    return denormalize(
+      inputProp,
       schema,
-      /* Read entities from state. */
-      state.entities,
+      entitiesProp,
     );
   };
 
