@@ -1,8 +1,8 @@
 import { denormalize, normalize } from 'normalizr';
 
-export default function withRedux(schema) {
+export default function withNormalizr(schema) {
   /* A wrapper function of denormalize. */
-  schema.reduxDenormalize = (input, entities) => {
+  schema.toDenormalize = (input, entities) => {
     let inputProp;
     let entitiesProp;
 
@@ -29,7 +29,7 @@ export default function withRedux(schema) {
   };
 
   /* A wrapper function of normalize. */
-  schema.reduxNormalize = (data) => {
+  schema.toNormalize = (data) => {
     return normalize(data, schema);
   };
 

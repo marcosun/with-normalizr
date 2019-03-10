@@ -1,4 +1,4 @@
-# redux-normalizr
+# with-normalizr
 
 ## Before I have been created
 
@@ -29,23 +29,23 @@ The other is redundancy. Schema is created by normalizr but when interacting wit
 
 ## Now live with me
 
-Now with redux-normalizr, it becomes this:
+Now with with-normalizr, it becomes this:
 Defining a schema:
 ```javascript
 import { schema } from 'normalizr';
-import withRedux from 'Common/redux-normalizr';
-const customerSchema = withRedux(new schema.Entity('customer'));
+import withNormalizr from 'with-normalizr';
+const customerSchema = withNormalizr(new schema.Entity('customer'));
 ```
 Normalise:
 ```javascript
 const customer = { id: 1, name: 'marco' };
-const normalisedCustomer = customerSchema.reduxNormalize(customer);
+const normalisedCustomer = customerSchema.toNormalize(customer);
 ```
 Denormalise:
 ```javascript
-const denormalisedCustomer = customerSchema.reduxDenormalize(normalisedCustomer);
+const denormalisedCustomer = customerSchema.toDenormalize(normalisedCustomer);
 ```
 
 ## One more thing
 
-Moreover, redux-normalizr is an HOC on schema instance, which means all usages provided by normalizr are still working.
+Moreover, with-normalizr is an HOC on schema instance, which means all usages provided by normalizr are still working.

@@ -1,5 +1,5 @@
 {
-  "name": "redux-normalizr",
+  "name": "with-normalizr",
   "version": "1.0.0",
   "description": "A factory function to simplify flattening data structure with normalizr.",
   "main": "src/index.js",
@@ -15,7 +15,7 @@
     "preversion": "yarn test",
     "version": "yarn build && npm publish build"
   },
-  "repository": "git@github.com:marcosun/redux-normalizr.git",
+  "repository": "git@github.com:marcosun/with-normalizr.git",
   "author": "marcosun <marcoinbristol@gmail.com>",
   "license": "MIT",
   "devDependencies": {
