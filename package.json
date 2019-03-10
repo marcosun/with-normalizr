@@ -10,9 +10,6 @@
     "build:es2015modules": "cross-env NODE_ENV=production BABEL_ENV=modules babel ./src/index.js -o ./build/index.es.js",
     "build:es": "cross-env NODE_ENV=production BABEL_ENV=es babel ./src/ -d ./build/es/ --ignore *.test.js",
     "build": "yarn build:es2015 && yarn build:es2015modules && yarn build:es && yarn build:copy-files",
-    "test": "jest",
-    "test:watch": "npm test -- --watch",
-    "preversion": "yarn test",
     "version": "yarn build && npm publish build"
   },
   "repository": "git@github.com:marcosun/with-normalizr.git",
