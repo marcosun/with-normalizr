@@ -1,7 +1,7 @@
 {
   "name": "with-normalizr",
   "version": "1.0.0",
-  "description": "A factory function to simplify flattening data structure with normalizr.",
+  "description": "Expose simplified functions to manipulate flattened data structure with normalizr.",
   "main": "src/index.js",
   "scripts": {
     "prebuild": "rimraf build",
